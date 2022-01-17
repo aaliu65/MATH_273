@@ -62,7 +62,6 @@ def lotka_volterra(k, l, a, b):
     return lambda x: [k * x[0] - a * x[0] * x[1], - l * x[1] + b * x[0] * x[1]]
 
 n = 5
-lv_init_pos = np.transpose([np.linspace(2, 5, n), np.ones(n)])
 draw_phase_curves(np.transpose([np.linspace(2, 10, n), np.ones(n)]), np.zeros(n), 
                   lotka_volterra(6, 4, 2, 2), 10**(-5), 0, 10, name = "l_v.png",
                   xrange = [0, 15], yrange = [0, 15], type = 1, title = "lv sim", size = 10)

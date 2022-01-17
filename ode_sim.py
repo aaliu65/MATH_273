@@ -36,7 +36,7 @@ def simulate_system(x0, t0, f, dt, t_min, t_max):
     return ts, xs
 
 def draw_phase_curves(x0s, t0s, f,
-                      dt, t_min, t_max, name
+                      dt, t_min, t_max, name,
                       xrange = [-3, 3], yrange = [-1.5, 1.5],
                       type = 0, title = "", size = 5):
     # generally used to visualize single graphs - subplots generated separately

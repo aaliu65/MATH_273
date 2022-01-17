@@ -33,7 +33,7 @@ def simulate_system(x0, t0, f, dt, t_min, t_max):
     return ts, xs
 
 def draw_phase_curves(x0s, t0s, f, 
-                      dt, t_min, t_max, 
+                      dt, t_min, t_max, name
                       xrange = [-3, 3], yrange = [-1.5, 1.5],
                       type = 0, title = "", size = 5):
     # generally used to visualize single graphs - subplots generated separately
@@ -56,6 +56,7 @@ def draw_phase_curves(x0s, t0s, f,
     plt.xlim(xrange[0], xrange[1])
     plt.axvline(x = 0, c = "black")
     plt.axhline(y = 0, c = "black")
+    plt.savefig(name)
     
 def lotka_volterra(k, l, a, b):
     return lambda x: [k * x[0] - a * x[0] * x[1], - l * x[1] + b * x[0] * x[1]]
@@ -63,5 +64,5 @@ def lotka_volterra(k, l, a, b):
 n = 5
 lv_init_pos = np.transpose([np.linspace(2, 5, n), np.ones(n)])
 draw_phase_curves(np.transpose([np.linspace(2, 10, n), np.ones(n)]), np.zeros(n), 
-                  lotka_volterra(6, 4, 2, 2), 10**(-5), 0, 10,
+                  lotka_volterra(6, 4, 2, 2), 10**(-5), 0, 10, name = "l_v.png",
                   xrange = [0, 15], yrange = [0, 15], type = 1, title = "", size = 10)
